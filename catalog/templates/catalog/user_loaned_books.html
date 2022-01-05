@@ -8,7 +8,9 @@
     <a href="{% url 'book-detail' bookinstance.book.pk %}"
       >{{bookinstance.book.title}}</a
     >
-    {{bookinstance.due_back}}
+    {{bookinstance.due_back}} {% if perms.catalog.can_reloan %}
+    <a href="{% url 'renew-book' bookinstance.id %}"> - Renew</a>
+    {% endif %}
   </li>
   {% endfor %}
 </ul>

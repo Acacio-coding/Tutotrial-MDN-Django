@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %} {% block content %}
+<h1>Renew: {{book_instance.Book.title}}</h1>
+<p>User: {{book_instance.user}}</p>
+<p {% if book_instance.late %} class="text-danger" {% endif %}>
+  Due back date: {{book_instance.due_back}}
+</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <table>
+    {{form.as_table}}
+  </table>
+  <input type="submit" value="Submit" />
+</form>
+{% endblock %}
