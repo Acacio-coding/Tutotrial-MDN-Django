@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 import uuid
 
 # Create your models here.
@@ -7,6 +8,12 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name
+
+class Language(models.Model):
+    nome = models.CharField(max_length = 200, help_text = "Digite a linguagem do livro")
+
+    def __str__(self):
+        return self.nome
 
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
@@ -29,6 +36,7 @@ class Book(models.Model):
     summary = models.TextField(max_length = 1000, help_text = 'Digite uma pequena descrição do livro')
     isbn = models.CharField('ISBN', max_length = 13)
     genre = models.ManyToManyField(Genre, help_text = 'Selecione um gênero para este livro')
+    Language = models.ForeignKey(Language, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.title
@@ -63,8 +71,3 @@ class BookInstance(models.Model):
     def __str__(self):
         return f'{self.id} ({self.book.title})'
 
-class Language(models.Model):
-    nome = models.CharField(max_length = 200, help_text = "Digite a linguagem do livro")
-
-    def __str__(self):
-        return self.nome
