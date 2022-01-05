@@ -20,7 +20,7 @@ cd mdn
 ```
 
 ```
-python -m venv <nome da sua venv>
+python3 -m venv <nome da sua venv>
 ```
 
 ```
@@ -29,4 +29,18 @@ python -m pip install --upgrade pip
 
 ```
 pip install -r requirements.txt
+```
+
+```
+python3 manage.py collectstatic
+```
+
+```
+python3 manage.py migrate
+```
+
+## Para iniciar o servidor local
+
+```
+python3 manage.py runserver
 ```
