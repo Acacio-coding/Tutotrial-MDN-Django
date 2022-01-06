@@ -1,0 +1,22 @@
+{% extends 'base_generic.html' %} {% block content %}
+<h1>Authors list</h1>
+
+{% if perms.catalog.can_handle_author %}
+<a href="{% url 'author-create' %}">New author</a>
+{% endif %} {% if author_list %}
+<ul>
+  {% for author in author_list %}
+  <li>
+    <a href="{{ author.get_absolute_url }}"
+      >{{author.last_name}}, {{author.first_name}}</a
+    >
+    {% if perms.catalog.can_handle_author %}
+    <a href="{% url 'author-update' author.id %}"> - Update</a>
+    <a href="{% url 'author-delete' author.id %}"> - Delete</a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>There isn't any registered author.</p>
+{% endif %} {% endblock %}

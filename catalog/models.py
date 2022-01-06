@@ -25,6 +25,7 @@ class Author(models.Model):
 
     class Meta:
         ordering = ['last_name', 'first_name']
+        permissions = (('can_handle_author', "Handle author record."),)
 
     def get_absolute_url(self):
         return reverse('author-detail', args=[str(self.id)])
