@@ -5,7 +5,6 @@ O objetivo é desenvolver um sistema web para o gerenciamento de uma biblioteca.
 ## Requerimentos
 
 - Python 3 ou superior
-- Django 4.0 ou superior
 
 ## Para utilizar o projeto
 
@@ -24,7 +23,7 @@ python3 -m venv <nome da sua venv>
 ```
 
 ```
-python -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 ```
 
 ```
@@ -38,6 +37,8 @@ python3 manage.py collectstatic
 ```
 python3 manage.py migrate
 ```
+
+Obs.: Não esqueça de configurar o settings.py gerado dentro de "<b>locallibrary</b>" para atender aos seus requisitos.
 
 ## Para iniciar o servidor local
 
