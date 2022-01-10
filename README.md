@@ -15,7 +15,7 @@ git clone https://github.com/Acacio-coding/tutotrialMDNDjango.git
 ```
 
 ```
-cd mdn
+cd <caminho da pasta após extrair>
 ```
 
 ```
